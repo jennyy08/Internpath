@@ -2,21 +2,22 @@ import { useState } from 'react'
 import { motion } from 'framer-motion'
 import { analyzeUserInput } from '../lib/ai'
 import ResultsView from '../components/ResultsView'
+import IntakeForm from '../components/IntakeForm'
 
 export default function LandingPage({ result, setResult, matchedProjects, setMatchedProjects }) {
   const [input, setInput] = useState('')
   const [loading, setLoading] = useState(false)
 
-  async function handleSubmit() {
-    if (!input.trim()) return
+  async function handleSubmit({ role, level, extraContext }) {
     setLoading(true)
-    const data = await analyzeUserInput(input)
+    const input = `Role: ${role}\nLevel: ${level}\n${extraContext ? `Additional context: ${extraContext}` : ''}`
+    const data = await analyzeUserInput(input, role, level)
     setResult({ ...data, originalInput: input })
     setLoading(false)
     setTimeout(() => {
-      document.getElementById('results')?.scrollIntoView({ behavior: 'smooth' })
+        document.getElementById('results')?.scrollIntoView({ behavior: 'smooth' })
     }, 100)
-  }
+    }
 
   return (
     <div className="min-h-screen bg-[#0d0d14] text-white">
@@ -120,32 +121,14 @@ export default function LandingPage({ result, setResult, matchedProjects, setMat
         </motion.div>
 
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5, delay: 0.1 }}
-          className="w-full max-w-2xl rounded-2xl p-px"
-          style={{
-            background: 'linear-gradient(135deg, rgba(168,85,247,0.4), rgba(99,102,241,0.4), rgba(59,130,246,0.4))'
-          }}
-        >
-          <div className="w-full bg-[#13131f] rounded-2xl p-6 flex flex-col gap-4">
-            <textarea
-              value={input}
-              onChange={(e) => setInput(e.target.value)}
-              placeholder="e.g. I want a software engineering internship at a startup. I know some Python but haven't done web dev yet..."
-              rows={4}
-              className="w-full bg-transparent text-white placeholder-zinc-500 resize-none outline-none text-sm leading-relaxed"
-            />
-            <button
-              onClick={handleSubmit}
-              disabled={loading}
-              className="self-end bg-white text-black font-semibold text-sm px-6 py-2.5 rounded-xl hover:bg-zinc-200 transition-colors disabled:opacity-50"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.1 }}
             >
-              {loading ? 'Analyzing...' : 'Get Recommendations →'}
-            </button>
-          </div>
+            <IntakeForm onSubmit={handleSubmit} loading={loading} />
         </motion.div>
+
       </section>
 
       {/* Results */}

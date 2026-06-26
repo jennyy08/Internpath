@@ -65,7 +65,11 @@ export default function ResultsView({ result, matchedProjects, setMatchedProject
       {/* Project grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         {matchedProjects.map((project, i) => (
-          <Link key={project.id} to={`/project/${project.id}`}>
+          <Link
+              key={project.id}
+              to={project.is_curated ? `/project/${project.id}` : `/project/ai/${project.id}`}
+              state={!project.is_curated ? { aiProject: project } : undefined}
+            >
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
