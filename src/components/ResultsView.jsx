@@ -7,8 +7,8 @@ import { Link } from 'react-router-dom'
 export default function ResultsView({ result, matchedProjects, setMatchedProjects }) {
 
   useEffect(() => {
-    if (matchedProjects.length > 0) return // already have results, don't refetch
-
+    setMatchedProjects([])
+    
     async function fetchProjects() {
       const ids = result.rankedProjects.map(r => r.id).slice(0, 3)
       const fetched = await getProjectsByIds(ids)
