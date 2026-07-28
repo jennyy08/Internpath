@@ -46,6 +46,9 @@ You must respond with ONLY a JSON object, no other text, in this exact format:
     "needs": ["skill3", "skill4"],
     "missing": ["skill3"]
   },
+  "learningPath": [
+    { "skill": "skill name", "why": "one line on why they need this first", "type": "concept" | "tool" | "language" | "framework" }
+  ],
   "rankedProjects": [
     {
       "id": "project-id-from-list",
@@ -53,6 +56,8 @@ You must respond with ONLY a JSON object, no other text, in this exact format:
     }
   ]
 }
+
+learningPath must be an ordered array of 3-5 skills the student should learn first, based on their missing skills, ordered from most foundational to most specific. Return ONLY the JSON, no markdown.
 
 detectedRole must be one of: "software-engineer", "frontend-engineer", "backend-engineer", "ml-engineer", "data-science", "product-manager", "ux-design", "data-analyst"
 If role is "not-sure", infer the best fit from their description.

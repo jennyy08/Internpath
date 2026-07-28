@@ -62,6 +62,36 @@ export default function ResultsView({ result, matchedProjects, setMatchedProject
         </div>
       </motion.div>
 
+      {/* Learning path */}
+      {result.learningPath?.length > 0 && (
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.1 }}
+          className="bg-white/5 border border-white/10 rounded-2xl p-6 flex flex-col gap-4 backdrop-blur-sm"
+        >
+          <span className="text-xs font-semibold uppercase tracking-widest text-zinc-500">What to learn first</span>
+          <div className="flex flex-col gap-3">
+            {result.learningPath.map((item, i) => (
+              <div key={i} className="flex items-start gap-3">
+                <div className="flex-shrink-0 w-6 h-6 rounded-full bg-purple-500/20 border border-purple-500/30 flex items-center justify-center text-purple-300 text-xs font-semibold mt-0.5">
+                  {i + 1}
+                </div>
+                <div className="flex flex-col gap-0.5">
+                  <div className="flex items-center gap-2">
+                    <span className="text-white text-sm font-semibold">{item.skill}</span>
+                    <span className="bg-white/5 text-zinc-500 text-xs px-2 py-0.5 rounded-lg border border-white/10">
+                      {item.type}
+                    </span>
+                  </div>
+                  <p className="text-zinc-400 text-xs">{item.why}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </motion.div>
+      )}
+
       {/* Project grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         {matchedProjects.map((project, i) => (
