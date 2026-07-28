@@ -49,7 +49,7 @@ export default function LandingPage({ result, setResult, matchedProjects, setMat
           transition={{ duration: 0.5 }}
           className="bg-purple-500/10 border border-purple-500/20 text-purple-300 text-xs font-semibold px-4 py-1.5 rounded-full"
         >
-          Built for students serious about getting hired
+          Build real things. Learn by doing.
         </motion.div>
         <motion.h1
           initial={{ opacity: 0, y: 20 }}

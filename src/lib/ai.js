@@ -30,7 +30,7 @@ export async function analyzeUserInput(userInput, role, level) {
       "anthropic-dangerous-direct-browser-access": "true"
     },
     body: JSON.stringify({
-      model: "claude-sonnet-4-6",
+      model: "claude-haiku-4-5-20251001",
       max_tokens: 1000,
       system: `You are an internship advisor. A student will describe their goals and background.
 
@@ -85,7 +85,7 @@ export async function generateAIProjects(userInput, detectedRole, existingCount,
       "anthropic-dangerous-direct-browser-access": "true"
     },
     body: JSON.stringify({
-      model: "claude-sonnet-4-6",
+      model: "claude-haiku-4-5-20251001",
       max_tokens: 2000,
       system: `You are an internship advisor. Generate exactly ${needed} project recommendations for a student.
       
@@ -130,7 +130,7 @@ export async function generateFullAIProjectSpec(basicProject) {
       "anthropic-dangerous-direct-browser-access": "true"
     },
     body: JSON.stringify({
-      model: "claude-sonnet-4-6",
+      model: "claude-haiku-4-5-20251001",
       max_tokens: 2000,
       system: `You are an internship advisor expanding a project idea into a full spec.
 
