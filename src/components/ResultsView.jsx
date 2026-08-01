@@ -41,7 +41,7 @@ export default function ResultsView({ result, matchedProjects, setMatchedProject
       >
         <div className="flex items-center gap-3">
           <span className="text-xs font-semibold uppercase tracking-widest text-zinc-500">Detected Role</span>
-          <span className="bg-purple-500/20 text-purple-300 text-xs font-semibold px-3 py-1 rounded-full border border-purple-500/30">
+          <span className="bg-red-500/20 text-red-300 text-xs font-semibold px-3 py-1 rounded-full border border-red-500/30">
             {result.detectedRole.replace(/-/g, ' ')}
           </span>
         </div>
@@ -74,7 +74,7 @@ export default function ResultsView({ result, matchedProjects, setMatchedProject
           <div className="flex flex-col gap-3">
             {result.learningPath.map((item, i) => (
               <div key={i} className="flex items-start gap-3">
-                <div className="flex-shrink-0 w-6 h-6 rounded-full bg-purple-500/20 border border-purple-500/30 flex items-center justify-center text-purple-300 text-xs font-semibold mt-0.5">
+                <div className="flex-shrink-0 w-6 h-6 rounded-full bg-red-500/20 border border-red-500/30 flex items-center justify-center text-red-300 text-xs font-semibold mt-0.5">
                   {i + 1}
                 </div>
                 <div className="flex flex-col gap-0.5">

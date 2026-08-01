@@ -15,22 +15,15 @@ export default function LandingPage({ result, setResult, matchedProjects, setMat
     setResult({ ...data, originalInput: input })
     setLoading(false)
     setTimeout(() => {
-        document.getElementById('results')?.scrollIntoView({ behavior: 'smooth' })
+      document.getElementById('results')?.scrollIntoView({ behavior: 'smooth' })
     }, 100)
-    }
+  }
 
   return (
     <div className="min-h-screen bg-[#0d0d14] text-white">
 
-      {/* Background blobs */}
-      <div className="fixed inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-[-20%] left-[-10%] w-[600px] h-[600px] bg-purple-600 rounded-full opacity-15 blur-[120px]" />
-        <div className="absolute bottom-[-20%] right-[-10%] w-[500px] h-[500px] bg-blue-600 rounded-full opacity-15 blur-[120px]" />
-        <div className="absolute top-[40%] right-[20%] w-[300px] h-[300px] bg-indigo-500 rounded-full opacity-8 blur-[100px]" />
-      </div>
-
       {/* Navbar */}
-      <nav className="relative z-10 flex items-center justify-between px-8 py-5 border-b border-white/5">
+      <nav className="relative z-20 flex items-center justify-between px-8 py-5 border-b border-white/5">
         <span className="font-bold text-lg tracking-tight">InternPath</span>
         <div className="flex items-center gap-6 text-sm text-zinc-400">
           <a href="#how-it-works" className="hover:text-white transition-colors">How it works</a>
@@ -42,37 +35,54 @@ export default function LandingPage({ result, setResult, matchedProjects, setMat
       </nav>
 
       {/* Hero */}
-      <section className="relative z-10 flex flex-col items-center text-center px-4 pt-28 pb-20 gap-6">
+      <section className="relative flex flex-col items-center text-center px-4 pt-56 pb-32 gap-6 overflow-hidden min-h-[90vh] justify-start">
+        {/* Spline background */}
+        <div className="absolute inset-0 z-0">
+          <iframe
+            src="https://my.spline.design/motiontrailscopycopy-0G4D821wycoXdSrMayvfUVxR/"
+            className="w-full h-full border-none"
+            title="background animation"
+          />
+          {/* Hides the "Built with Spline" watermark bottom right */}
+          <div className="absolute bottom-0 right-0 w-48 h-12 bg-[#0d0d14]" />
+          {/* Bottom fade into rest of page */}
+          <div className="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-[#0d0d14] to-transparent" />
+        </div>
+
+        {/* Hero content */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
-          className="bg-purple-500/10 border border-purple-500/20 text-purple-300 text-xs font-semibold px-4 py-1.5 rounded-full"
+          className="relative z-10 bg-red-500/10 border border-red-500/20 text-red-300 text-xs font-semibold px-4 py-1.5 rounded-full"
         >
           Build real things. Learn by doing.
         </motion.div>
+
         <motion.h1
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.1 }}
-          className="text-6xl font-bold tracking-tight max-w-2xl leading-tight"
+          className="relative z-10 text-6xl font-bold tracking-tight max-w-2xl leading-tight"
         >
-          Build the right things.
+          InternPath
         </motion.h1>
+
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.2 }}
-          className="text-zinc-400 text-xl max-w-xl leading-relaxed"
+          className="relative z-10 text-zinc-400 text-xl max-w-xl leading-relaxed"
         >
           InternPath analyzes your goals and recommends real projects that grow your skills and get you hired.
         </motion.p>
+
         <motion.a
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.3 }}
           href="#get-started"
-          className="bg-white text-black font-semibold px-8 py-3 rounded-xl hover:bg-zinc-200 transition-colors text-sm mt-2"
+          className="relative z-10 bg-white text-black font-semibold px-8 py-3 rounded-xl hover:bg-zinc-200 transition-colors text-sm mt-2"
         >
           Get started →
         </motion.a>
@@ -98,7 +108,7 @@ export default function LandingPage({ result, setResult, matchedProjects, setMat
               transition={{ duration: 0.5, delay: i * 0.15 }}
               className="bg-white/5 border border-white/10 rounded-2xl p-6 flex flex-col gap-3 backdrop-blur-sm"
             >
-              <span className="text-purple-400 font-bold text-sm">{step}</span>
+              <span className="text-red-400 font-bold text-sm">{step}</span>
               <h3 className="font-semibold text-white">{title}</h3>
               <p className="text-zinc-400 text-sm leading-relaxed">{desc}</p>
             </motion.div>
@@ -121,14 +131,13 @@ export default function LandingPage({ result, setResult, matchedProjects, setMat
         </motion.div>
 
         <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.1 }}
-            >
-            <IntakeForm onSubmit={handleSubmit} loading={loading} />
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, delay: 0.1 }}
+        >
+          <IntakeForm onSubmit={handleSubmit} loading={loading} />
         </motion.div>
-
       </section>
 
       {/* Results */}

@@ -34,7 +34,7 @@ export default function ProjectDetailPage() {
     return (
       <div className="min-h-screen bg-[#0d0d14] text-white flex flex-col items-center justify-center gap-4">
         <p className="text-zinc-400">Project not found.</p>
-        <Link to="/" className="text-purple-400 hover:underline">Back to home</Link>
+        <Link to="/" className="text-red-400 hover:underline">Back to home</Link>
       </div>
     )
   }
@@ -50,7 +50,7 @@ export default function ProjectDetailPage() {
 
       {/* Background blobs */}
       <div className="fixed inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-[-20%] left-[-10%] w-[600px] h-[600px] bg-purple-600 rounded-full opacity-15 blur-[120px]" />
+        <div className="absolute top-[-20%] left-[-10%] w-[600px] h-[600px] bg-red-600 rounded-full opacity-15 blur-[120px]" />
         <div className="absolute bottom-[-20%] right-[-10%] w-[500px] h-[500px] bg-blue-600 rounded-full opacity-15 blur-[120px]" />
       </div>
 
@@ -71,7 +71,7 @@ export default function ProjectDetailPage() {
         >
           <div className="flex items-center gap-2">
             {project.is_curated && (
-              <span className="bg-purple-500/20 text-purple-300 text-xs font-semibold px-3 py-1 rounded-full border border-purple-500/30">
+              <span className="bg-red-500/20 text-red-300 text-xs font-semibold px-3 py-1 rounded-full border border-red-500/30">
                 ★ Curated
               </span>
             )}
@@ -124,11 +124,11 @@ export default function ProjectDetailPage() {
             </ul>
           </div>
           <div className="bg-white/5 border border-white/10 rounded-2xl p-6 flex flex-col gap-3 backdrop-blur-sm">
-            <span className="text-xs font-semibold uppercase tracking-widest text-purple-400">Advanced Features</span>
+            <span className="text-xs font-semibold uppercase tracking-widest text-red-400">Advanced Features</span>
             <ul className="flex flex-col gap-2">
               {project.advanced_features?.map((f, i) => (
                 <li key={i} className="text-zinc-300 text-sm flex gap-2">
-                  <span className="text-purple-400">+</span> {f}
+                  <span className="text-red-400">+</span> {f}
                 </li>
               ))}
             </ul>
@@ -147,7 +147,7 @@ export default function ProjectDetailPage() {
             <div className="flex flex-col gap-3">
               {project.milestones.map((m) => (
                 <div key={m.order} className="bg-white/5 border border-white/10 rounded-2xl p-5 flex gap-4 backdrop-blur-sm">
-                  <div className="flex-shrink-0 w-8 h-8 rounded-full bg-purple-500/20 border border-purple-500/30 flex items-center justify-center text-purple-300 text-sm font-semibold">
+                  <div className="flex-shrink-0 w-8 h-8 rounded-full bg-red-500/20 border border-red-500/30 flex items-center justify-center text-red-300 text-sm font-semibold">
                     {m.order}
                   </div>
                   <div className="flex flex-col gap-1">
@@ -189,9 +189,9 @@ export default function ProjectDetailPage() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.5 }}
-            className="bg-purple-500/5 border border-purple-500/20 rounded-2xl p-6 flex flex-col gap-3"
+            className="bg-red-500/5 border border-red-500/20 rounded-2xl p-6 flex flex-col gap-3"
           >
-            <span className="text-xs font-semibold uppercase tracking-widest text-purple-400">Why Recruiters Care</span>
+            <span className="text-xs font-semibold uppercase tracking-widest text-red-400">Why Recruiters Care</span>
             <p className="text-zinc-300 text-sm leading-relaxed">{project.recruiter_signal}</p>
           </motion.div>
         )}

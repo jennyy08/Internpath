@@ -42,7 +42,7 @@ export default function IntakeForm({ onSubmit, loading }) {
               onClick={() => setSelectedRole(role.id)}
               className={`flex flex-col items-center gap-1.5 p-3 rounded-xl border text-sm font-medium transition-all ${
                 selectedRole === role.id
-                  ? 'bg-purple-500/20 border-purple-500/50 text-white'
+                  ? 'bg-red-500/20 border-red-500/50 text-white'
                   : 'bg-white/5 border-white/10 text-zinc-400 hover:bg-white/8 hover:text-white'
               }`}
             >
@@ -71,7 +71,7 @@ export default function IntakeForm({ onSubmit, loading }) {
                   onClick={() => setSelectedLevel(level.id)}
                   className={`flex flex-col gap-1 p-4 rounded-xl border text-left transition-all ${
                     selectedLevel === level.id
-                      ? 'bg-purple-500/20 border-purple-500/50 text-white'
+                      ? 'bg-red-500/20 border-red-500/50 text-white'
                       : 'bg-white/5 border-white/10 text-zinc-400 hover:bg-white/8 hover:text-white'
                   }`}
                 >
@@ -100,7 +100,7 @@ export default function IntakeForm({ onSubmit, loading }) {
             <div
               className="w-full rounded-2xl p-px"
               style={{
-                background: 'linear-gradient(135deg, rgba(168,85,247,0.4), rgba(99,102,241,0.4), rgba(59,130,246,0.4))'
+                background: 'linear-gradient(135deg, rgba(239,68,68,0.4), rgba(99,102,241,0.4), rgba(59,130,246,0.4))'
               }}
             >
               <div className="w-full bg-[#13131f] rounded-2xl p-4 flex flex-col gap-4">
