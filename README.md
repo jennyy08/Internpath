@@ -2,8 +2,6 @@
 
 A web platform that helps high school and university students get their first internship by recommending structured, job-specific projects and the skills needed to build them.
 
-**[Live Demo](#)** · **[GitHub](#)**
-
 ---
 
 ## What it does
@@ -112,10 +110,3 @@ Open `localhost:5173`.
 - [ ] Co-builder panel: scoped AI chat anchored to one project and one milestone, constrained to explain/unblock/review — never to generate full implementations
 - [ ] Deployment with a small backend so the API key moves server-side
 
----
-
-## Built by
-
-Jenny Yuan — [GitHub](https://github.com/yourusername) · [LinkedIn](https://linkedin.com/in/yourusername)
-
-*Built as part of a Waterloo co-op application portfolio.*
